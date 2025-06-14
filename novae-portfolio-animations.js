@@ -156,3 +156,4 @@ function nextSlide() {
     );
 
   current = next;
+  }
