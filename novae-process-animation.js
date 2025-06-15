@@ -2,6 +2,9 @@
 document.querySelectorAll(".navbar_link").forEach((link) => {
 	configureScrollTo(link);
 });
+document.querySelectorAll(".navbar_huge-link").forEach((link) => {
+	configureScrollTo(link);
+});
 document.querySelectorAll(".footer_link").forEach((link) => {
 	configureScrollTo(link);
 });

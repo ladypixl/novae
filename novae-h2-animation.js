@@ -39,8 +39,7 @@ function createH2MasterTimeline(name) {
 		trigger: `#gsap_h2_${name}`,
 		toggleActions: "play none none none",
 		start: "top 80%",
-		end: "+=400",
-		markers: true
+		end: "+=400"
 	  }
 	});
 	master.add("start", 0);
