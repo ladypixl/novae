@@ -20,7 +20,6 @@ document.querySelectorAll(".word").forEach((el) => {
 
 const b2bMaster = gsap.timeline({
   scrollTrigger: {
-    markers: true,
     trigger: "#gsap_b2b",
     toggleActions: "restart pause reverse pause", // determines how the linked animation is controlled at the 4 toggle places: onEnter, onLeave, onEnterBack, and onLeaveBack
     start: "top 90%", // when the top of the trigger hits 90 from top of the viewport
@@ -50,14 +49,14 @@ b2bSplit.lines.forEach((line, i) => {
       {
         left: b2bLeftPositionValue,
         opacity: 0.4,
-        filter: "blur(4px)"
+        filter: window.BLURS.light
       },
       {
         left: 0,
         opacity: 1,
-        filter: "blur(0px)",
+        filter: window.BLURS.none,
         duration: duration,
-        ease: "power3.inOut"
+        ease: window.EFFECTS.easeInOut
       },
       `start+=${lineDelay}`
     );

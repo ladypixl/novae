@@ -1,7 +1,6 @@
 /** variables */
 const appareanceDuration = 1.0;
 const appareanceDelay = 0.1;
-const ease = "power3.inOut";
 const heroElementIds = ["gsap_menu_link1", "gsap_menu_link2", "gsap_menu_link3", 
 "gsap_menu_link4", "gsap_menu_link5", "gsap_menu_link6",  "gsap_menu_link7", 
 "gsap_cta_who", "gsap_cta_what"];
@@ -50,9 +49,9 @@ function createH1Timeline(split, className, masterDelay) {
       `.${className}${charCount}`,
       {
         opacity: 1,
-        filter: "blur(0px)",
+        filter: window.BLURS.none,
         duration: appareanceDuration,
-        ease: ease
+        ease: window.EFFECTS.easeInOut
       },
       `start+=${delay}`
     );
@@ -62,9 +61,9 @@ function createH1Timeline(split, className, masterDelay) {
 function putWordInTheBlur(delay) {
   let tl = gsap.timeline();
   tl.to(".become", {
-    filter: "blur(4px)",
+    filter: window.BLURS.light,
     duration: 0.8,
-    ease: "power1.out"
+    ease: window.EFFECTS.easeOut
   });
   masterH1.add(tl, `start+=${delay}`);
 }
@@ -83,12 +82,12 @@ function showOtherHeroElements(masterDelay) {
       lastDelay = masterDelay + delay;
     }
     tl.to(
-     	`#${id}`, 
+     `#${id}`, 
       {
         opacity: 1,
-        filter: "blur(0px)",
+        filter: window.BLURS.none,
         duration: appareanceDuration * heroElementsSlowingFactor,
-        ease: ease
+        ease: window.EFFECTS.easeInOut
       },
       `start+=${delay}`);
   });
@@ -99,9 +98,9 @@ function showRedHeroElements(masterDelay) {
   masterH1.to(
     ".memorable4",
     {
-      color: "#eb4d58",
+      color: window.COLORS.accent,
       duration: appareanceDuration,
-      ease: ease
+      ease: window.EFFECTS.easeInOut
     },
     `start+=${masterDelay}`
   );
@@ -110,9 +109,9 @@ function showRedHeroElements(masterDelay) {
     "#gsap_cta_btn",
     {
       opacity: 1,
-      filter: "blur(0px)",
+      filter: window.BLURS.none,
       duration: appareanceDuration,
-      ease: ease
+      ease: window.EFFECTS.easeInOut
     },
     `start+=${delay}`
   );
