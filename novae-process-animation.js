@@ -1,3 +1,28 @@
+// Scroll links configuration
+document.querySelectorAll(".navbar_link").forEach((link) => {
+	configureScrollTo(link);
+});
+document.querySelectorAll(".footer_link").forEach((link) => {
+	configureScrollTo(link);
+});
+
+function configureScrollTo(link) {
+  link.addEventListener("click", () => {
+      const target = "#" + link.getAttribute("data-target");
+      if (target) {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: {
+            y: target,
+            offsetY: 80
+          },
+          ease: "power2.out"
+        });
+      }
+  });
+}
+
+// Process steps animation
 gsap.utils.toArray(".process_item-wrapper").forEach((el, i) => {
   gsap.fromTo(
     el,
